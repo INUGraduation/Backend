@@ -1,11 +1,18 @@
 package com.example.inu.domain.user.services;
 
+import com.example.inu.domain.user.dtos.users.UserLoginDto;
 import com.example.inu.domain.user.dtos.users.UserRegisterDto;
 import com.example.inu.domain.user.entities.User;
 import com.example.inu.domain.user.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Collections;
 
 @Service
 public class UserService {
@@ -28,23 +35,23 @@ public class UserService {
         return userRepository.save(newUser);
     }
 
-//    public Authentication getAuthentication(UserLoginDto userLoginDto) {//로그인
-//        User user = userRepository.findByEmail(userLoginDto.getEmail()).orElse(null);
-//        if (user == null) {
-//            System.out.println("User not found with email: " + userLoginDto.getEmail());
-//            return null;
-//        }
-//        if (!passwordEncoder.matches(userLoginDto.getPassword(), user.getPassword())) {
-//            System.out.println("Password mismatch for user: " + user.getEmail());
-//            return null;
-//        }
-//        GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_USER");
-//        Authentication auth = new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword(), Collections.singletonList(authority));
-//        //UsernamePasswordAuthenticationToken 생성: 이 객체는 여러 생성자를 가지고 있으며, 권한 목록이 포함된 생성자를 사용할 때 authenticated 속성이 true로 설정됩니다
-//        //이래서 authenticated가 false->true로 설정된 것.
-//
-//        return auth;
-//    }
+    public Authentication getAuthentication(UserLoginDto userLoginDto) {//로그인
+        User user = userRepository.findByEmail(userLoginDto.getEmail()).orElse(null);
+        if (user == null) {
+            System.out.println("User not found with email: " + userLoginDto.getEmail());
+            return null;
+        }
+        if (!passwordEncoder.matches(userLoginDto.getPassword(), user.getPassword())) {
+            System.out.println("Password mismatch for user: " + user.getEmail());
+            return null;
+        }
+        GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_USER");
+        Authentication auth = new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword(), Collections.singletonList(authority));
+        //UsernamePasswordAuthenticationToken 생성: 이 객체는 여러 생성자를 가지고 있으며, 권한 목록이 포함된 생성자를 사용할 때 authenticated 속성이 true로 설정됩니다
+        //이래서 authenticated가 false->true로 설정된 것.
+
+        return auth;
+    }
 
     public boolean checkEmailAvailability(String email) {
         return userRepository.findByEmail(email).isEmpty();

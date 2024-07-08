@@ -2,6 +2,9 @@ package com.example.inu.config;
 
 
 
+import com.example.inu.global.jwt.JwtAccessDeniedHandler;
+import com.example.inu.global.jwt.JwtAuthenticationEntryPoint;
+import com.example.inu.global.jwt.JwtSecurityConfig;
 import com.example.inu.global.jwt.TokenProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
