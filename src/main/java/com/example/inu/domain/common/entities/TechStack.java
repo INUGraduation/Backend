@@ -1,4 +1,4 @@
-package com.example.inu.domain.user.entities;
+package com.example.inu.domain.common.entities;
 
 
 import com.example.inu.domain.common.entities.Position;
@@ -27,4 +27,3 @@ public class TechStack {
     @Column(nullable = false)
     private String name;
 }
-//왜 안되는거지
