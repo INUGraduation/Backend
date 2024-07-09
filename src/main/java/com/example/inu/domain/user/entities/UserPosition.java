@@ -1,7 +1,7 @@
 package com.example.inu.domain.user.entities;
 
 
-import com.example.Backend.domain.common.entities.Position;
+import com.example.inu.domain.common.entities.Position;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
