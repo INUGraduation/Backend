@@ -49,12 +49,12 @@ public class ProfileService {
         User user = userRepository.findByEmail(userEmail)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found with email :" + userEmail));
 
-        // 사진 파일이 있으면 S3에 업로드하고 URL을 설정
-        if (!photoFile.isEmpty()) {
-            String photoUrl = s3ImageService.upload(photoFile);
-            System.out.println(photoUrl);// S3 업로드 후 URL 반환
-            user.setPhoto(photoUrl);
-        }
+//        // 사진 파일이 있으면 S3에 업로드하고 URL을 설정
+//        if (!photoFile.isEmpty()) {
+//            String photoUrl = s3ImageService.upload(photoFile);
+//            System.out.println(photoUrl);// S3 업로드 후 URL 반환
+//            user.setPhoto(photoUrl);
+//        }
 
         user.setGender(profileDto.getGender());
         user.setIntro(profileDto.getIntro());
@@ -101,11 +101,11 @@ public class ProfileService {
         User user = userRepository.findById(userId).orElseThrow(() -> new UsernameNotFoundException("User not found with id :" + userId));
 
         // 사진 파일이 있으면 S3에 업로드하고 URL을 설정
-        if (photoFile != null && !photoFile.isEmpty()) {
-            String photoUrl = s3ImageService.upload(photoFile);
-            System.out.println(photoUrl); // S3 업로드 후 URL 반환
-            user.setPhoto(photoUrl);
-        }
+//        if (photoFile != null && !photoFile.isEmpty()) {
+//            String photoUrl = s3ImageService.upload(photoFile);
+//            System.out.println(photoUrl); // S3 업로드 후 URL 반환
+//            user.setPhoto(photoUrl);
+//        }
 
         user.setGender(profileUpdateDto.getGender());
         user.setIntro(profileUpdateDto.getIntro());
