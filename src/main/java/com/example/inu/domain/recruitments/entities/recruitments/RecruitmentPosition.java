@@ -1,8 +1,7 @@
-package com.example.inu.domain.recruitments.entities;
+package com.example.inu.domain.recruitments.entities.recruitments;
 
 
 import com.example.inu.domain.common.entities.Position;
-import com.example.inu.domain.recruitments.entities.recruitments.Recruitment;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
