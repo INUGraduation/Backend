@@ -8,23 +8,17 @@ import java.util.List;
 
 @Getter
 @Setter
-public class RecruitmentDetailDto {
+public class RecruitmentReadDto {
     private Long id;
     private String title;
     private String type;
     private Integer number;
-    private Date createdDate;
     private Date startDate;
+    private Date endDate;
     private Date deadline;
     private Boolean closing;
-    private String introduction;
     private List<String> positions;
     private List<String> techStacks;
     private Long userId;
-    private String photo;
-    private String name;
-    private Long applicationId;
-
-
 }
-//게시글 상세조회
+//게시글 전체조회
