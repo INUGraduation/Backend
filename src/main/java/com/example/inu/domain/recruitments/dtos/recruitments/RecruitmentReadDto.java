@@ -1,4 +1,4 @@
-package com.example.inu.domain.recruitments.dtos;
+package com.example.inu.domain.recruitments.dtos.recruitments;
 
 import lombok.Getter;
 import lombok.Setter;
