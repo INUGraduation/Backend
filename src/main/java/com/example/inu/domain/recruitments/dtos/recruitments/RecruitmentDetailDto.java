@@ -15,6 +15,7 @@ public class RecruitmentDetailDto {
     private Integer number;
     private Date createdDate;
     private Date startDate;
+    private Date endDate;
     private Date deadline;
     private Boolean closing;
     private String introduction;
