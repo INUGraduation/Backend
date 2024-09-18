@@ -13,6 +13,7 @@ import com.example.inu.domain.recruitments.repositories.applications.Application
 import com.example.inu.domain.recruitments.repositories.submissions.AnswerRepository;
 import com.example.inu.domain.recruitments.repositories.submissions.ChoiceRepository;
 import com.example.inu.domain.recruitments.repositories.submissions.SubmissionRepository;
+import com.example.inu.domain.recruitments.services.Email.EmailService;
 import com.example.inu.domain.user.entities.User;
 import com.example.inu.domain.user.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

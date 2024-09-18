@@ -31,8 +31,8 @@ public class AnswerService {
     private ChoiceRepository choiceRepository;
     @Autowired
     private OptionRepository optionRepository;
-//    @Autowired
-//    private S3FileService s3FileService;
+    @Autowired
+    private S3FileService s3FileService;
     //submission : 제출서
     public Answer createAnswer(AnswerCreateDto dto, Long questionId, Long submissionId, MultipartFile file) {
         Question question = questionRepository.findById(questionId)
