@@ -1,4 +1,4 @@
-package com.example.inu.domain.recruitments.controllers.recruitments;
+package com.example.inu.domain.recruitments.controllers;
 
 import com.example.inu.domain.recruitments.dtos.recruitments.RecruitmentCreateDto;
 import com.example.inu.domain.recruitments.dtos.recruitments.RecruitmentDetailDto;
