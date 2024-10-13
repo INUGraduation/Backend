@@ -51,7 +51,7 @@ public class SecurityConfig  {//WebSecurityConfigurerAdapter 클래스가 Spring
                 .csrf(AbstractHttpConfigurer :: disable)
                 .cors(cors -> cors.configurationSource(request -> {
                     CorsConfiguration config = new CorsConfiguration();
-                    config.setAllowedOrigins(Arrays.asList("*"));
+                    config.setAllowedOrigins(Arrays.asList("http://localhost:5173")); // 허용할 도메인 명시
                     config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
                     config.setAllowedHeaders(Arrays.asList("*"));
                     config.setAllowCredentials(true);
@@ -66,7 +66,7 @@ public class SecurityConfig  {//WebSecurityConfigurerAdapter 클래스가 Spring
                         // Swagger 관련 리소스에 대한 접근 허용
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
                         // 그 외 모든 요청은 인증 요구
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
 
                 .sessionManagement(sessionManagement -> sessionManagement
